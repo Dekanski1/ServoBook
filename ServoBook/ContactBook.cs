@@ -46,9 +46,7 @@ namespace ContactBook
                         contact.DisplayAllContact(contact.Contacts);
                         if(contact.Contacts.Count == 0)
                             {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Lista obecnie jest pusta!");
-                                Console.ResetColor();
+                                 contact.MessageError("Lista obecnie jest pusta!");
                             }
                         break;
                     case "2":
@@ -65,9 +63,8 @@ namespace ContactBook
                             if (firstName.Length == 0)
                             {
                                 isFirstName = false;
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Wprowadzono nie poprawną wartość!");
-                                Console.ResetColor();
+                                contact.MessageError("Wprowadzono niepoprawną wartość!");
+                                
                             }
                             else
                             {
@@ -85,10 +82,7 @@ namespace ContactBook
                             if (lastName.Length == 0)
                             {
                                 isLastName = false;
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Wprowadzono nie poprawną wartość!");
-                                Console.ResetColor();
-
+                                contact.MessageError("Wprowadzono niepoprawną wartość!");
                             }
                             else
                             {
@@ -107,10 +101,7 @@ namespace ContactBook
                             if (email.Length == 0)
                             {
                                 isEmail = false;
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Wprowadzono nie poprawną wartość!");
-                                Console.ResetColor();
-
+                                contact.MessageError("Wprowadzono niepoprawną wartość!");
                             }
                             else
                             {
@@ -134,9 +125,7 @@ namespace ContactBook
                             if(phoneNumber.Length != 9)
                             {
                                 isPhoneNumber = false;
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Wprowadzono nie poprawną wartość!");
-                                Console.ResetColor();
+                                contact.MessageError("Wprowadzono niepoprawną wartość!");
                             }
                             else
                             {
@@ -160,9 +149,7 @@ namespace ContactBook
                             else
                             {
                                 isBirthday = false;
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Wprowadzono nie poprawną wartość!");
-                                Console.ResetColor();
+                                contact.MessageError("Wprowadzono niepoprawną wartość!");
                             }
                             
 

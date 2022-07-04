@@ -22,15 +22,15 @@ namespace ContactBook.Services
             Console.WriteLine($" Imię i nazwisko: {contact.firstName} { contact.lastName}");
             Console.WriteLine($" Numer telefonu: {contact.phoneNumber}");
             Console.WriteLine($" E-mail: {contact.email}");
-            Console.WriteLine($" Data urodzenia: {contact.birthday}");
+            Console.WriteLine($" Data urodzenia: {contact.birthday.Day}.{contact.birthday.Month}.{contact.birthday.Year}");
             Console.WriteLine("------------------------------------------------------------");
             
             // Console.WriteLine($"Conttact: { contact.firstName} { contact.lastName} {contact.phoneNumber} {contact.email} {contact.birthday.Day}./{contact.birthday.Month}.{contact.birthday.Year}");
         }
-        private void ContactNotFound()
+        public void MessageError(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Nie znaleziono kontaktu.");
+            Console.WriteLine(message);
             Console.ResetColor();
         }
         public void SearchContact(string searchPhrase)
@@ -71,10 +71,8 @@ namespace ContactBook.Services
         public void RemoveContact(string firstName, string lastName)
         {
             if (firstName == null || lastName == null)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Nie podano wszystkich wartości!");
-                Console.ResetColor();
+            { 
+                MessageError("Nie podano wszystkich wartości!");
             }
             else
             {
@@ -100,9 +98,7 @@ namespace ContactBook.Services
             
             if (firstName.Equals("") || lastName.Equals(""))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Nie podano wszystkich wartości!");
-                Console.ResetColor();
+                MessageError("Nie podano wszystkich wartości!");
             }
             else
             {
@@ -180,7 +176,7 @@ namespace ContactBook.Services
             }
             if (tmpContacts == null)
             {
-                ContactNotFound();
+                MessageError("Nie znaleziono kontaktu.");
             }
             else
             {
